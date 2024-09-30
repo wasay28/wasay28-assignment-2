@@ -6,6 +6,10 @@ from kmeans import KMeans
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def home():
+    return "KMeans Clustering API is running. Use the /api/kmeans endpoint for clustering."
+
 @app.route('/api/kmeans', methods=['POST'])
 def run_kmeans():
     data = request.json
